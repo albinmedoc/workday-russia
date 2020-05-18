@@ -19,5 +19,9 @@
     "url": "https://github.com/albinmedoc/workday-russia/issues"
   },
   "homepage": "https://github.com/albinmedoc/workday-russia#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
 }
