@@ -1,0 +1,23 @@
+{
+  "name": "workday-russia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albinmedoc/workday-russia.git"
+  },
+  "author": "Albin Médoc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/albinmedoc/workday-russia/issues"
+  },
+  "homepage": "https://github.com/albinmedoc/workday-russia#readme",
+  "dependencies": {}
+}
