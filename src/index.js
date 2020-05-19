@@ -44,12 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         title: isholiday ? "Ledig" : "Inte ledig",
                         start: date,
                         allDay: true,
+                        backgroundColor: isholiday ? "green" : "red"
                     });
                 })
                 // Catch error and console log it
                 .catch((err) => console.error(err));
         },
     });
+
     // Render the calendar
     calendar.render();
 });
