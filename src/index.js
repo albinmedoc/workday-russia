@@ -7,6 +7,8 @@ import interactionPlugin from "@fullcalendar/interaction";
 import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 
+import svLocale from "@fullcalendar/core/locales/sv";
+
 const axios = require("axios");
 
 // When the document has fully loaded
@@ -18,6 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var calendar = new Calendar(calendarEl, {
         // Assign plugins
         plugins: [dayGridPlugin, interactionPlugin],
+
+        // Set locale to Swedish
+        locale: svLocale,
+
+        // dateClick event
         dateClick: function (info) {
             // Get the clicked date
             let date = new Date(info.dateStr + "T00:00:00");
@@ -34,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then((res) => {
                     let isholiday = res.data.holiday;
                     calendar.addEvent({
-                        title: isholiday ? "Holiday" : "Not holiday",
+                        title: isholiday ? "Ledig" : "Inte ledig",
                         start: date,
                         allDay: true,
                     });
