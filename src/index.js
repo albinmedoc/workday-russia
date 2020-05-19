@@ -29,6 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
             // Get the clicked date
             let date = new Date(info.dateStr + "T00:00:00");
 
+            // Check if thera already is a event on that day
+            if(calendar.getEventById(date.toDateString())){
+                // Quiting the function
+                return;
+            }
+
             // Send request to the API
             axios({
                 method: "get",
@@ -41,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then((res) => {
                     let isholiday = res.data.holiday;
                     calendar.addEvent({
+                        id: date.toDateString(),
                         title: isholiday ? "Ledig" : "Inte ledig",
                         start: date,
                         allDay: true,
