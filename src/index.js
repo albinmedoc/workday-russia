@@ -11,7 +11,6 @@ const axios = require("axios");
 
 // When the document has fully loaded
 document.addEventListener("DOMContentLoaded", function () {
-
     // Find the calendar element
     var calendarEl = document.getElementById("calendar");
 
@@ -26,15 +25,22 @@ document.addEventListener("DOMContentLoaded", function () {
             // Send request to the API
             axios({
                 method: "get",
-                url: "https://datazen.katren.ru/calendar/day/" + date.toDateString() + "/"
+                url:
+                    "https://datazen.katren.ru/calendar/day/" +
+                    date.toDateString() +
+                    "/",
             })
-            // 200 response
-            .then(res => {
-                let isholiday = res.data.holiday;
-                console.log(isholiday);
-            })
-            // Catch error and console log it
-            .catch(err => console.error(err));
+                // 200 response
+                .then((res) => {
+                    let isholiday = res.data.holiday;
+                    calendar.addEvent({
+                        title: isholiday ? "Holiday" : "Not holiday",
+                        start: date,
+                        allDay: true,
+                    });
+                })
+                // Catch error and console log it
+                .catch((err) => console.error(err));
         },
     });
     // Render the calendar
